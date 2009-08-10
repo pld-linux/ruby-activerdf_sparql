@@ -6,6 +6,7 @@ License:	Ruby's
 Group:		Development/Languages
 Source0:	http://gems.rubyforge.org/gems/activerdf_sparql-%{version}.gem
 # Source0-md5:	b2d9f0f46bef31ed1f91be9d09808849
+Patch0:	%{name}-nogems.patch
 URL:		http://activerdf.rubyforge.org
 BuildRequires:	rake
 BuildRequires:	rpmbuild(macros) >= 1.277
@@ -16,9 +17,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ActiveRDF adaptor for SPARQL.
 
 %prep
-%setup -q -c -n activerdf-%{version}
+%setup -q -c -n %{name}-%{version}
 tar xzf data.tar.gz
 cp %{_datadir}/setup.rb .
+%patch0 -p1
 
 %build
 ruby setup.rb config \

@@ -1,0 +1,30 @@
+diff -ur ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/init.rb ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/init.rb
+--- ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/init.rb	1969-12-31 17:00:00.000000000 -0700
++++ ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/init.rb	2009-08-10 08:00:06.054814286 -0600
+@@ -1,10 +1 @@
+-# add the directory in which this file is located to the ruby loadpath
+-file =
+-if File.symlink?(__FILE__)
+-  File.readlink(__FILE__)
+-else
+-  __FILE__
+-end
+-$: << File.dirname(File.expand_path(file))
+-
+-require 'sparql'
++require 'activerdf_sparql/sparql'
+diff -ur ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/sparql.rb ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/sparql.rb
+--- ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/sparql.rb	1969-12-31 17:00:00.000000000 -0700
++++ ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/sparql.rb	2009-08-10 08:00:34.048144437 -0600
+@@ -1,9 +1,9 @@
+ require 'active_rdf'
+-require 'queryengine/query2sparql'
++require 'active_rdf/queryengine/query2sparql'
+ require 'open-uri'
+ require 'cgi'
+ require 'rexml/document'
+-require "#{File.dirname(__FILE__)}/sparql_result_parser"
++require "activerdf_sparql/sparql_result_parser"
+ 
+ # SPARQL adapter
+ class SparqlAdapter < ActiveRdfAdapter
