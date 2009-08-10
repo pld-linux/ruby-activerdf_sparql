@@ -1,0 +1,12 @@
+diff -ur ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/sparql.rb ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/sparql.rb
+--- ruby-activerdf_sparql-1.3.4-o/lib/activerdf_sparql/sparql.rb	2009-08-10 08:00:34.048144437 -0600
++++ ruby-activerdf_sparql-1.3.4-n/lib/activerdf_sparql/sparql.rb	2009-08-10 08:29:36.054638278 -0600
+@@ -31,6 +31,8 @@
+ 		raise ActiveRdfError, "Result format unsupported" unless known_formats.include?(@result_format)
+ 		
+ 		$activerdflog.info "SPARQL adapter initialised #{inspect}"
++
++		super()
+ 	end
+ 
+ 	def size
